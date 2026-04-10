@@ -1,0 +1,280 @@
+const pool = [
+    // Original Agendas
+    { t: "Dedicated Fund for Student Activities", o: "Frequent budget denials hinder club operations and event planning.", s: "Establish a separate bank reserve with a fast-track approval committee including student reps."
+    },
+    { t: "Student Development and Career Services", o: "Students face career confusion and related mental health issues.", s: "Launch regular competitive exam awareness sessions and ensure 24/7 counselor accessibility."
+    },
+    { t: "Transparency and Open House Policy", o: "Lack of communication regarding administrative decisions and fund usage.", s: "Conduct regular open houses and provide students with a right to expenditure information."
+    },
+    { t: "Student Council Constitution", o: "Absence of defined powers leads to arbitrary administrative decisions.", s: "Draft and implement a formal constitution defining the powers of the council and administration."
+    },
+    { t: "Weekend Transportation Services", o: "Students lack reliable transport to Jammu City for recreation and shopping.", s: "Start dedicated weekend bus services to major hubs like KC Theatre and Wave Mall."
+    },
+    { t: "EG Portal for Faculty Projects", o: "Students struggle to find research opportunities due to a lack of awareness.", s: "Create a portal on EG listing ongoing faculty projects and allowing student proposals."
+    },
+    { t: "Inter-IIT Participation Reform", o: "Restrictive policies limit students to only three inter-IIT events.", s: "Amend participation limits to foster talent and increase travel reimbursement caps."
+    },
+    { t: "Flexible Campus In/Out Timings", o: "Current 10:00 PM restrictions limit student freedom and emergency mobility.", s: "Strive for flexible timings and a faster, digital leave permission process."
+    },
+    // New Pool Agendas
+    { t: "24/7 Library Access", o: "Current hours restrict late-night academic preparation.", s: "Transition to round-the-clock operations with night-shift staff."
+    },
+    { t: "Industry-Standard Software Access", o: "Limited licenses for high-end software hinder technical skill building.", s: "Procure campus-wide licenses for essential industry software suites."
+    },
+    { t: "Integrated M.Tech Conversion Framework", o: "Lack of clear guidelines for B.Tech to M.Tech transitions.", s: "Formalize documentation and eligibility rules for program conversion."
+    },
+    { t: "Semester Exchange Expansion", o: "Underutilization of international and domestic university MOUs.", s: "Simplify the application process to increase student participation in exchanges."
+    },
+    { t: "Annual Senior Farewell Gala", o: "Graduating batches lack a formal university-led departure event.", s: "Organize a dedicated annual farewell party with institute funding."
+    },
+    { t: "North Campus Tuck Shop", o: "Students must travel to South Campus for basic daily necessities.", s: "Open a retail outlet in North Campus near residential areas."
+    },
+    { t: "Late-Night Security Patrols", o: "Safety concerns on dark campus roads during late hours.", s: "Station security guards at key points near hostels and dining areas."
+    },
+    { t: "Mess Entertainment Systems", o: "Dining halls lack recreational outlets during meal times.", s: "Install TVs in mess halls for news and sports broadcasts."
+    },
+    { t: "Mess Tender Student Representation", o: "Food quality suffers when student feedback is excluded from contracts.", s: "Include council members as active stakeholders in the mess tender committee."
+    },
+    { t: "Medical OPD Reimbursement", o: "Students bear the cost of external consultations when referred by the institute.", s: "Implement a system for full reimbursement of external medical fees."
+    },
+    { t: "Hostel Health Supply Access", o: "Female students lack immediate access to essential health supplies.", s: "Install period-product dispensers in hostels and academic blocks."
+    },
+    { t: "Drinking Water Audit", o: "Inconsistent maintenance of filtration systems in various hostels.", s: "Implement scheduled hygiene audits and system upgrades."
+    },
+    { t: "Standardized Hostel Cleaning", o: "Sanitation levels in common areas are frequently sub-standard.", s: "Hire dedicated staff for frequent cleaning of washrooms and hallways."
+    },
+    { t: "PG and PhD Priority Housing", o: "Scholars face housing instability during campus transitions.", s: "Secure permanent, high-quality housing for all research scholars on campus."
+    },
+    { t: "Fee Hike Transparency", o: "Sudden fee increases cause financial confusion and stress.", s: "Establish a committee to review hikes and provide itemized cost breakdowns."
+    },
+    { t: "PG Representation in Fests", o: "Research students are often excluded from major event planning.", s: "Mandate PG conveners for all major technical and cultural fests."
+    },
+    { t: "Digital Travel Claims", o: "Manual reimbursement processes for travel are excessively slow.", s: "Digitize the allowance process to ensure rapid fund disbursement."
+    },
+    { t: "Lab Biometric Attendance", o: "Manual tracking in labs is inefficient and prone to errors.", s: "Install biometric scanners in every lab and scholar room."
+    },
+    { t: "Research Scholar Recognition Day", o: "Lack of social and professional networking for the PhD community.", s: "Organize an annual day for presentations and social activities."
+    },
+    { t: "Laboratory Hydration Stations", o: "Students spend long hours in labs without water access.", s: "Equip every major lab with dedicated water dispensers."
+    },
+    { t: "PG Recreational Trips", o: "Scholars have limited opportunities for non-academic recreation.", s: "Plan exclusive weekend nature trips for the PG community."
+    },
+    { t: "North Campus Recreation Hub", o: "Lack of indoor sports facilities in the North residential area.", s: "Convert vacant rooms into game rooms with pool and TT tables."
+    },
+    { t: "PG-Specific Placements", o: "Placement cells focus primarily on undergraduate requirements.", s: "Create a dedicated CDS wing for PG internships and placements."
+    },
+    { t: "Campus Cycle Sharing", o: "Inter-block commuting is difficult and time-consuming.", s: "Introduce a dock-based cycle sharing system across campus."
+    },
+    { t: "Real-Time Grievance App", o: "Reporting infrastructure issues lacks tracking and accountability.", s: "Launch a mobile app to log and track the status of student complaints."
+    },
+    { t: "Alumni Mentorship Portal", o: "Limited direct connection with successful graduates.", s: "Create a digital network for alumni-student career mentorship."
+    },
+    { t: "24/7 Common Study Rooms", o: "Hostels lack quiet, air-conditioned spaces for group study.", s: "Upgrade common rooms with ACs and high-speed internet."
+    },
+    { t: "Inter-Hostel Sports League", o: "Sports engagement is currently limited to annual fests.", s: "Launch a year-round sports league to build hostel spirit."
+    },
+    { t: "Subsidized Professional Certificates", o: "High costs of industry certifications for students.", s: "Partner with online platforms to provide free or discounted certificates."
+    },
+    { t: "Electric Rickshaw Transit", o: "Commuting across large campus areas is difficult in extreme weather.", s: "Introduce electric rickshaws for intra-campus transport."
+    },
+    { t: "Group Student Insurance", o: "Medical emergencies pose a significant financial risk to students.", s: "Negotiate comprehensive group health insurance for all students."
+    },
+    { t: "Soft-Skill Training Workshops", o: "Lack of focus on public speaking and financial literacy.", s: "Organize weekly expert-led workshops on non-academic skills."
+    },
+    { t: "Innovation Seed Grants", o: "Student entrepreneurs lack funds for initial prototyping.", s: "Allocate activity funds to provide micro-grants for startups."
+    },
+    { t: "Gym Equipment Upgrade", o: "Outdated machines limit effective fitness training.", s: "Modernize gym equipment and appoint professional trainers."
+    },
+    { t: "Soundproof Music Rooms", o: "Cultural club practices often disturb other students.", s: "Provide dedicated, soundproofed practice spaces for arts clubs."
+    },
+    { t: "Online Guest House Booking", o: "Complex procedures for booking rooms for visiting parents.", s: "Launch a streamlined online portal for family accommodation."
+    },
+    { t: "Campus Green Zones", o: "New campus areas lack shade and aesthetic greenery.", s: "Start student-led plantation drives for shaded relaxation spots."
+    },
+    { t: "Sustainable Waste Management", o: "Inefficient waste segregation across campus blocks.", s: "Install color-coded bins and partner with local recycling units."
+    },
+    { t: "Media Equipment Library", o: "High cost of cameras and media gear for aspiring creators.", s: "Create a loan system for students to borrow professional cameras."
+    },
+    { t: "Peer Tutoring Program", o: "Difficulty in mastering core courses through faculty hours alone.", s: "Establish a paid program for seniors to tutor juniors in tough subjects."
+    },
+    { t: "Campus-Wide High-Speed WiFi", o: "Connectivity dead zones in several hostel blocks.", s: "Expand router networks to ensure 100% campus coverage."
+    },
+    { t: "Regional Cultural Nights", o: "Limited opportunities for inter-state cultural sharing.", s: "Host monthly events featuring regional food and performances."
+    },
+    { t: "Free Monthly Printing Quota", o: "Accumulated printing costs for academic reports.", s: "Provide a monthly quota of free prints at the library for students."
+    },
+    { t: "Mental Health De-Stigmatization", o: "Stigma prevents students from utilizing counseling services.", s: "Host frequent wellness seminars and stress-relief events."
+    },
+    { t: "Summer Research Grants", o: "Students leave campus for research due to local funding gaps.", s: "Establish institute-funded summer research fellowships."
+    },
+    { t: "Competitive Coding Lab", o: "Lack of high-performance computing for hackathon participants.", s: "Dedicate a specialized lab with high-end GPUs for coding contests."
+    },
+    { t: "Campus Mural Project", o: "Campus aesthetics are dominated by plain concrete structures.", s: "Invite student artists to paint murals reflecting campus life."
+    },
+    { t: "Laundry Service Efficiency", o: "Long wait times and poor quality in laundry services.", s: "Implement a digital slot-booking and quality-check system."
+    },
+    { t: "Emergency First-Aid Training", o: "Lack of student preparedness for medical or fire crises.", s: "Conduct mandatory basic safety and first-aid drills each semester."
+    },
+    { t: "Language Learning Hub", o: "Limited resources for learning global languages.", s: "Support student-led clubs for foreign language proficiency."
+    }
+    { t: "AI-Powered Personalized Learning Paths", o: "Uniform teaching methods ignore individual learning differences.", s: "Deploy AI systems to recommend customized study plans and resources." },
+    { t: "Modular Degree Customization", o: "Rigid curricula limit interdisciplinary exploration.", s: "Allow students to build degrees using modular credit blocks." },
+    { t: "Blockchain Academic Records", o: "Transcript verification is slow and centralized.", s: "Store academic records on blockchain for secure, instant verification." },
+    { t: "Real-Time Lecture Transcription", o: "Students miss details during fast-paced lectures.", s: "Provide live AI-generated transcripts for all classes." },
+    { t: "Adaptive Exam Difficulty", o: "Fixed exams fail to measure true competency range.", s: "Implement adaptive testing systems that adjust difficulty dynamically." },
+
+    { t: "Student-Owned IP Framework", o: "Unclear ownership discourages innovation.", s: "Establish clear policies granting students ownership of their work." },
+    { t: "AI Research Matchmaking", o: "Students struggle to find relevant research mentors.", s: "Use AI to match students with faculty and projects." },
+    { t: "Failure Case Study Repository", o: "Learning from failed projects is neglected.", s: "Create a database documenting unsuccessful experiments." },
+    { t: "Rapid Patent Support Cell", o: "Patent filing is complex and slow.", s: "Provide legal and financial fast-track support for patents." },
+    { t: "Cross-University Research Pods", o: "Collaboration across institutes is limited.", s: "Form joint research teams across institutions." },
+
+    { t: "Blockchain Voting System", o: "Election transparency concerns persist.", s: "Implement secure blockchain-based voting." },
+    { t: "Real-Time Budget Dashboard", o: "Students lack visibility into fund usage.", s: "Publish live dashboards of expenditures." },
+    { t: "Policy Simulation Sandbox", o: "Policy decisions lack student testing.", s: "Allow simulation of policy impacts before implementation." },
+    { t: "Anonymous Governance Feedback", o: "Students hesitate to criticize policies openly.", s: "Launch anonymous structured feedback platforms." },
+    { t: "Participatory Budgeting", o: "Students have limited say in fund allocation.", s: "Let students vote on budget distribution." },
+
+    { t: "Digital Twin Campus Model", o: "Infrastructure planning lacks predictive insights.", s: "Build a virtual replica for simulations and planning." },
+    { t: "IoT Energy Optimization", o: "Energy usage is inefficient.", s: "Deploy sensors to optimize electricity consumption." },
+    { t: "Autonomous Delivery Robots", o: "Logistics across campus are slow.", s: "Introduce robots for food and parcel delivery." },
+    { t: "Predictive Maintenance System", o: "Facilities fail unexpectedly.", s: "Use data to predict and prevent breakdowns." },
+    { t: "AR Campus Navigation", o: "New students face navigation issues.", s: "Provide AR-based real-time directions." },
+
+    { t: "Reverse Placement Model", o: "Students have limited choice in placements.", s: "Allow companies to pitch to students instead." },
+    { t: "Skill Passport System", o: "Resumes poorly reflect actual skills.", s: "Create verified skill-based digital profiles." },
+    { t: "Industry Sabbatical Semester", o: "Students lack real-world exposure.", s: "Enable semester-long industry immersion." },
+    { t: "Freelance Marketplace", o: "Students lack access to paid gigs.", s: "Build an internal freelance platform." },
+    { t: "Career Simulation Labs", o: "Students are unprepared for real job scenarios.", s: "Simulate workplace environments and tasks." },
+
+    { t: "Experience Credit System", o: "Non-academic contributions are undervalued.", s: "Award credits for extracurricular achievements." },
+    { t: "Dynamic Event Recommendation", o: "Students miss relevant campus events.", s: "Use AI to suggest personalized events." },
+    { t: "Interest-Based Hostel Clustering", o: "Random allocation reduces community bonding.", s: "Group students by shared interests." },
+    { t: "Campus Time Banking", o: "Peer help systems are unstructured.", s: "Allow students to exchange services using time credits." },
+    { t: "Digital Campus Memory Archive", o: "Institutional history is not preserved.", s: "Create a multimedia archive of campus life." },
+
+    { t: "AI Stress Detection (Opt-in)", o: "Mental health issues go unnoticed early.", s: "Use behavioral signals to detect stress patterns." },
+    { t: "Peer Listener Network", o: "Students prefer informal support channels.", s: "Train certified student listeners." },
+    { t: "Burnout Prediction Dashboard", o: "Academic overload is reactive, not preventive.", s: "Track workload indicators and alert students." },
+    { t: "Digital Detox Zones", o: "Excessive screen time affects wellbeing.", s: "Create no-device relaxation spaces." },
+    { t: "Gamified Wellness Tracking", o: "Students ignore health habits.", s: "Reward healthy routines through gamification." },
+
+    { t: "Carbon Credit System", o: "Sustainability efforts lack incentives.", s: "Reward eco-friendly actions with credits." },
+    { t: "Smart Waste Segregation", o: "Waste sorting is inefficient.", s: "Use AI-enabled bins for sorting." },
+    { t: "Water Usage Dashboard", o: "Water consumption is unmonitored.", s: "Provide real-time analytics." },
+    { t: "Zero-Waste Event Certification", o: "Events generate excessive waste.", s: "Certify eco-friendly events." },
+    { t: "Renewable Energy Ownership", o: "Students lack stake in sustainability.", s: "Enable shared ownership of solar infrastructure." },
+
+    { t: "Campus Digital Currency", o: "Transactions lack unified ecosystem.", s: "Introduce internal digital currency." },
+    { t: "Student Investment Fund", o: "Students lack exposure to investing.", s: "Create a managed student-run fund." },
+    { t: "Micro-Grant Marketplace", o: "Small ideas lack funding access.", s: "Enable quick funding through peer voting." },
+    { t: "Emergency Micro-Loans", o: "Students face sudden financial stress.", s: "Provide instant short-term loans." },
+    { t: "Financial Simulation Platform", o: "Financial literacy is low.", s: "Offer interactive financial planning tools." },
+
+    { t: "Metaverse Campus Replica", o: "Remote engagement is limited.", s: "Build a virtual campus for interaction." },
+    { t: "Human-AI Collaboration Lab", o: "AI usage lacks structured exploration.", s: "Create labs focused on human-AI workflows." },
+    { t: "Ethics Board for AI Use", o: "AI adoption raises ethical concerns.", s: "Establish oversight committees." },
+    { t: "Experimental Semester Model", o: "Rigid academics limit creativity.", s: "Offer project-only semesters." },
+    { t: "Grand Challenge Labs", o: "Learning lacks real-world problem focus.", s: "Organize interdisciplinary problem-solving labs." },
+
+    { t: "Global Student Governance Network", o: "Institutes operate in isolation.", s: "Connect student bodies globally." },
+    { t: "Lifelong Alumni Learning Access", o: "Alumni lose academic access.", s: "Provide continuous learning privileges." },
+    { t: "Personal Data Ownership Policy", o: "Student data usage lacks transparency.", s: "Grant control over personal data." },
+    { t: "AI Academic Advisor", o: "Advising systems are inconsistent.", s: "Deploy AI for academic planning." },
+    { t: "Dynamic Curriculum Updates", o: "Courses lag behind industry trends.", s: "Continuously update syllabi using industry data." }
+
+    { t: "Centralized Internship Database", o: "Students rely on scattered sources for internships.", s: "Create a verified, regularly updated institute-wide internship portal." },
+    { t: "Course Prerequisite Transparency", o: "Students enroll without understanding required background.", s: "Publish clear prerequisite maps for every course." },
+    { t: "Exam Schedule Buffer Policy", o: "Back-to-back exams reduce performance.", s: "Ensure minimum gap between major exams." },
+    { t: "Lecture Recording Repository", o: "Missed classes create learning gaps.", s: "Store and share recorded lectures systematically." },
+    { t: "TA Accountability System", o: "Teaching quality varies across TAs.", s: "Introduce structured feedback and evaluation of TAs." },
+    { t: "Standardized Grading Rubrics", o: "Inconsistent grading causes confusion.", s: "Mandate rubric-based evaluation across courses." },
+    { t: "Assignment Deadline Coordination", o: "Multiple deadlines cluster together.", s: "Coordinate deadlines across departments." },
+    { t: "Open Elective Expansion", o: "Limited elective choices restrict exploration.", s: "Increase cross-department elective offerings." },
+    { t: "Academic Advising Hours", o: "Students lack guidance for course planning.", s: "Ensure mandatory advisor-student meetings each semester." },
+    { t: "Re-evaluation Transparency", o: "Answer sheet rechecks lack clarity.", s: "Provide detailed feedback during re-evaluation." },
+
+    { t: "Lab Equipment Booking System", o: "Students face conflicts accessing equipment.", s: "Introduce online slot booking for labs." },
+    { t: "Consumables Availability Tracking", o: "Lab materials often run out unexpectedly.", s: "Maintain live inventory dashboards." },
+    { t: "Research Credit Recognition", o: "Extra research work goes uncredited.", s: "Allow credit-based recognition for research." },
+    { t: "Faculty Office Hour Enforcement", o: "Office hours are inconsistently followed.", s: "Standardize and monitor faculty availability." },
+    { t: "Mini Project Integration", o: "Theory-heavy courses lack application.", s: "Include small projects in core courses." },
+
+    { t: "Hostel Maintenance Ticketing", o: "Repair complaints are delayed or ignored.", s: "Implement trackable digital complaint system." },
+    { t: "Mess Menu Feedback Loop", o: "Food quality feedback is not acted upon.", s: "Collect weekly feedback with action reports." },
+    { t: "Mess Nutrition Information", o: "Students lack dietary awareness.", s: "Display calorie and nutrition details." },
+    { t: "Common Room Upgrades", o: "Shared spaces are underutilized.", s: "Equip with study and recreation facilities." },
+    { t: "Quiet Hours Enforcement", o: "Noise disrupts study environments.", s: "Define and enforce quiet hours in hostels." },
+
+    { t: "Water Supply Monitoring", o: "Irregular water supply disrupts routine.", s: "Install monitoring and alert systems." },
+    { t: "Electricity Backup Improvement", o: "Power cuts affect productivity.", s: "Ensure reliable backup in hostels and labs." },
+    { t: "Campus Lighting Audit", o: "Dark areas pose safety risks.", s: "Conduct regular lighting audits and fixes." },
+    { t: "Accessible Campus Infrastructure", o: "Facilities are not disability-friendly.", s: "Upgrade ramps, lifts, and signage." },
+    { t: "Washroom Hygiene Audits", o: "Sanitation standards are inconsistent.", s: "Schedule frequent inspections and cleaning." },
+
+    { t: "Campus Shuttle Tracking", o: "Students cannot predict shuttle timings.", s: "Provide real-time tracking via app." },
+    { t: "Cycle Repair Stations", o: "Cycle breakdowns disrupt mobility.", s: "Install self-service repair points." },
+    { t: "Parking Space Allocation", o: "Unorganized parking causes congestion.", s: "Mark and manage parking zones." },
+    { t: "Pedestrian Pathways Upgrade", o: "Walking routes are unsafe or incomplete.", s: "Improve sidewalks and crossings." },
+    { t: "Rainwater Drainage Fixes", o: "Waterlogging disrupts campus movement.", s: "Upgrade drainage systems." },
+
+    { t: "Placement Data Transparency", o: "Students lack clear placement statistics.", s: "Publish detailed annual reports." },
+    { t: "Mock Interview Program", o: "Students lack interview preparation.", s: "Conduct regular mock interviews with feedback." },
+    { t: "Resume Review Cell", o: "Poor resumes reduce opportunities.", s: "Offer structured resume evaluation." },
+    { t: "Alumni Interaction Series", o: "Students lack industry exposure.", s: "Host regular alumni talks." },
+    { t: "Internship Credit Option", o: "Internships clash with academic schedules.", s: "Allow credit substitution." },
+
+    { t: "Club Funding Transparency", o: "Allocation process lacks clarity.", s: "Publish budgets and spending reports." },
+    { t: "Event Calendar Consolidation", o: "Events overlap frequently.", s: "Maintain centralized event calendar." },
+    { t: "Equipment Sharing Across Clubs", o: "Resources are duplicated unnecessarily.", s: "Create shared inventory system." },
+    { t: "Volunteer Recognition System", o: "Event volunteers go unrecognized.", s: "Provide certificates or credits." },
+    { t: "Inter-Club Collaboration Incentives", o: "Clubs operate in silos.", s: "Reward joint events." },
+
+    { t: "Medical Emergency Response Plan", o: "Emergency handling is unclear.", s: "Define and publicize response protocols." },
+    { t: "Ambulance Availability Tracking", o: "Delays occur during emergencies.", s: "Track and optimize ambulance access." },
+    { t: "Pharmacy Stock Availability", o: "Medicines are often unavailable.", s: "Maintain updated stock lists." },
+    { t: "Health Checkup Camps", o: "Preventive healthcare is ignored.", s: "Organize periodic checkups." },
+    { t: "Mental Health Appointment System", o: "Counseling access is slow.", s: "Enable online booking with reduced wait times." },
+
+    { t: "WiFi Downtime Reporting", o: "Internet issues lack accountability.", s: "Track and publish downtime data." },
+    { t: "IT Support Ticket System", o: "Tech issues are resolved slowly.", s: "Provide structured ticketing support." },
+    { t: "Software License Portal", o: "Students unaware of available tools.", s: "List all licensed software in one place." },
+    { t: "Computer Lab Availability Tracker", o: "Labs are overcrowded unpredictably.", s: "Show real-time occupancy." },
+    { t: "Data Backup Policy", o: "Student data loss is common.", s: "Provide secure backup systems." },
+
+    { t: "Library Seat Availability System", o: "Students struggle to find seating.", s: "Display real-time seat availability." },
+    { t: "Extended Library Hours During Exams", o: "Study spaces are insufficient.", s: "Increase hours in peak periods." },
+    { t: "Book Request System", o: "Required books are missing.", s: "Allow students to request purchases." },
+    { t: "Digital Library Access Expansion", o: "Limited online resources.", s: "Subscribe to more journals and databases." },
+    { t: "Silent Study Zones", o: "Noise disrupts focus in libraries.", s: "Enforce strict silent areas." },
+
+    { t: "Lost and Found Portal", o: "Lost items are hard to recover.", s: "Create centralized reporting system." },
+    { t: "Campus Notice Standardization", o: "Information is scattered.", s: "Unify notices into one platform." },
+    { t: "Student ID Multi-Use Integration", o: "Multiple systems require separate IDs.", s: "Integrate ID for payments and access." },
+    { t: "Feedback Closure Reports", o: "Students don’t see outcomes of feedback.", s: "Publish action taken reports." },
+    { t: "Orientation Program Expansion", o: "New students struggle to adapt.", s: "Extend and improve onboarding." },
+
+    { t: "Exam Hall Infrastructure Upgrade", o: "Facilities are inadequate during exams.", s: "Improve seating and ventilation." },
+    { t: "Digital Hall Ticket System", o: "Manual processes cause delays.", s: "Automate hall ticket generation." },
+    { t: "Flexible Course Drop Policy", o: "Dropping courses is restrictive.", s: "Allow easier withdrawal options." },
+    { t: "Backlog Support Classes", o: "Students lack help clearing backlogs.", s: "Provide dedicated remedial sessions." },
+    { t: "Attendance Policy Review", o: "Strict rules add stress.", s: "Introduce flexibility with valid conditions." },
+
+    { t: "Faculty Feedback Transparency", o: "Students unsure if feedback matters.", s: "Share summarized results with actions." },
+    { t: "Course Load Limit Guidelines", o: "Students overload semesters.", s: "Recommend optimal credit limits." },
+    { t: "Project Evaluation Standardization", o: "Assessment varies widely.", s: "Define uniform evaluation criteria." },
+    { t: "Interdisciplinary Project Grants", o: "Cross-field projects lack support.", s: "Provide funding incentives." },
+    { t: "Capstone Showcase Event", o: "Projects lack visibility.", s: "Organize public demonstrations." },
+
+    { t: "Cafeteria Hygiene Checks", o: "Food safety varies.", s: "Conduct regular inspections." },
+    { t: "Affordable Snack Options", o: "Campus food is expensive.", s: "Ensure budget-friendly items." },
+    { t: "Drinking Water Points Expansion", o: "Water access is limited.", s: "Install more dispensers." },
+    { t: "Queue Management in Mess", o: "Long queues waste time.", s: "Optimize flow with multiple counters." },
+    { t: "Food Feedback Kiosks", o: "Feedback collection is inefficient.", s: "Install quick digital feedback stations." },
+
+    { t: "Student Suggestion Portal", o: "Ideas are not collected systematically.", s: "Create open suggestion platform." },
+    { t: "Monthly Townhall Meetings", o: "Communication gap with administration.", s: "Host regular open discussions." },
+    { t: "Department Newsletter", o: "Students miss important updates.", s: "Publish monthly summaries." },
+    { t: "Peer Mentorship Program", o: "Juniors lack guidance.", s: "Assign senior mentors." },
+    { t: "Skill Workshop Series", o: "Practical skills are underdeveloped.", s: "Conduct hands-on workshops." }
+];

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manifesto</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel input-panel">
+      <h1>General Secretary Manifesto Generator</h1>
+      <p class="subhead">Generate a complete, election-ready manifesto in a formal format.</p>
+
+      <label for="candidateName">Candidate Name</label>
+      <input id="candidateName" type="text" placeholder="Insert Name Here" />
+
+      <label for="discipline">Discipline</label>
+      <input id="discipline" type="text" placeholder="COMPUTER SCIENCE AND ENGINEERING" />
+
+      <label for="priorExperience">Prior Experience</label>
+      <textarea id="priorExperience" rows="7" placeholder="Insert one experience per line"></textarea>
+
+      <label for="candidatePhoto">Photograph</label>
+      <input id="candidatePhoto" type="file" accept="image/png, image/jpeg, image/webp" />
+
+      <div class="button-row">
+        <button id="generateBtn" type="button">Randomise formatting</button>
+        <button id="copyBtn" type="button">Copy Text</button>
+        <button id="printBtn" type="button">Print</button>
+        <button id="pdfBtn" type="button">Save as PDF</button>
+      </div>
+
+      <section class="adjustments">
+        <h3>Manual Adjustments</h3>
+
+        <label for="fontSizeSlider">Body Font Size: <span id="fontSizeValue">16px</span></label>
+        <input id="fontSizeSlider" type="range" min="12" max="22" step="1" value="16" />
+
+        <label for="headingScaleSlider">Heading Scale: <span id="headingScaleValue">100%</span></label>
+        <input id="headingScaleSlider" type="range" min="80" max="160" step="1" value="100" />
+
+        <label for="lineHeightSlider">Line Spacing: <span id="lineHeightValue">1.45</span></label>
+        <input id="lineHeightSlider" type="range" min="1.2" max="2" step="0.05" value="1.45" />
+
+        <label for="borderWidthSlider">Border Width: <span id="borderWidthValue">2px</span></label>
+        <input id="borderWidthSlider" type="range" min="1" max="8" step="1" value="2" />
+
+        <label for="radiusSlider">Corner Radius: <span id="radiusValue">10px</span></label>
+        <input id="radiusSlider" type="range" min="0" max="28" step="1" value="10" />
+
+        <label for="photoScaleSlider">Photo Scale: <span id="photoScaleValue">100%</span></label>
+        <input id="photoScaleSlider" type="range" min="80" max="140" step="1" value="100" />
+
+        <label for="textAlignSlider">Text Alignment: <span id="textAlignValue">left</span></label>
+        <input id="textAlignSlider" type="range" min="0" max="3" step="1" value="0" />
+
+        <label for="photoAlignSlider">Photo Alignment: <span id="photoAlignValue">center</span></label>
+        <input id="photoAlignSlider" type="range" min="0" max="2" step="1" value="1" />
+
+        <label for="fontFamilySlider">Font Family: <span id="fontFamilyValue">Garamond</span></label>
+        <input id="fontFamilySlider" type="range" min="0" max="23" step="1" value="0" />
+
+        <label for="borderStyleSlider">Border Style: <span id="borderStyleValue">solid</span></label>
+        <input id="borderStyleSlider" type="range" min="0" max="5" step="1" value="0" />
+
+        <label for="paddingSlider">Page Padding: <span id="paddingValue">16mm</span></label>
+        <input id="paddingSlider" type="range" min="10" max="24" step="1" value="16" />
+
+        <label for="letterSpacingSlider">Letter Spacing: <span id="letterSpacingValue">0.0px</span></label>
+        <input id="letterSpacingSlider" type="range" min="-0.5" max="2" step="0.1" value="0" />
+
+        <label for="saturationSlider">Saturation: <span id="saturationValue">100%</span></label>
+        <input id="saturationSlider" type="range" min="70" max="140" step="1" value="100" />
+
+        <label for="contrastSlider">Contrast: <span id="contrastValue">100%</span></label>
+        <input id="contrastSlider" type="range" min="90" max="125" step="1" value="100" />
+
+        <label for="brightnessSlider">Brightness: <span id="brightnessValue">100%</span></label>
+        <input id="brightnessSlider" type="range" min="90" max="115" step="1" value="100" />
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel output-panel">
+      <h2>Generated Manifesto</h2>
+      <div id="manifestoOutput" class="manifesto a4-page" aria-label="Generated manifesto"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
