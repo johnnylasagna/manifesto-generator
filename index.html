@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manifesto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -31,8 +34,10 @@
         <button id="pdfBtn" type="button">Save as PDF</button>
       </div>
 
-      <section class="adjustments">
-        <h3>Manual Adjustments</h3>
+      <details class="adjustments">
+        <summary>Manual Adjustments</summary>
+
+        <div class="adjustments-grid">
 
         <label for="fontSizeSlider">Body Font Size: <span id="fontSizeValue">16px</span></label>
         <input id="fontSizeSlider" type="range" min="12" max="22" step="1" value="16" />
@@ -78,7 +83,8 @@
 
         <label for="brightnessSlider">Brightness: <span id="brightnessValue">100%</span></label>
         <input id="brightnessSlider" type="range" min="90" max="115" step="1" value="100" />
-      </section>
+        </div>
+      </details>
 
       <p id="status" class="status" aria-live="polite"></p>
     </section>
