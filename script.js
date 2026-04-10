@@ -1,13 +1,13 @@
 const DEFAULT_DISCIPLINE = "COMPUTER SCIENCE AND ENGINEERING";
-const MANIFESTO_TITLE = "MANIFESTO FOR THE POST OF GENERAL SECRETARY";
+const DEFAULT_SECRETARY_POST = "General Secretary";
 const MISSION_QUOTE = '"Leadership is not about being in charge. It is about taking care of those in your charge"';
 const AGENDA_TARGET_COUNT = 10;
-const TITLE_OPTIONS = [
-  "MANIFESTO FOR THE POST OF GENERAL SECRETARY",
-  "GENERAL SECRETARY ELECTION MANIFESTO",
-  "MANIFESTO FOR GENERAL SECRETARY",
-  "VISION DOCUMENT FOR GENERAL SECRETARY",
-  "GENERAL SECRETARY STUDENT MANIFESTO"
+const TITLE_TEMPLATES = [
+  "MANIFESTO FOR THE POST OF {POST}",
+  "{POST} ELECTION MANIFESTO",
+  "MANIFESTO FOR {POST}",
+  "VISION DOCUMENT FOR {POST}",
+  "{POST} STUDENT MANIFESTO"
 ];
 const MISSION_HEADING_OPTIONS = [
   "MISSION STATEMENT",
@@ -73,6 +73,7 @@ const BORDER_WIDTH_OPTIONS = [1, 2, 3, 4, 5, 6];
 const RADIUS_OPTIONS = [0, 4, 8, 12, 16, 20, 24];
 
 const candidateNameInput = document.getElementById("candidateName");
+const secretaryPostInput = document.getElementById("secretaryPost");
 const disciplineInput = document.getElementById("discipline");
 const priorExperienceInput = document.getElementById("priorExperience");
 const candidatePhotoInput = document.getElementById("candidatePhoto");
@@ -436,9 +437,11 @@ function buildManifestoHtml(candidateName, discipline, experiences, agendas, tag
   `;
 }
 
-function buildRandomHeadings() {
+function buildRandomHeadings(secretaryPost) {
+  const safePost = (secretaryPost || DEFAULT_SECRETARY_POST).toUpperCase();
+  const titleTemplate = randomItem(TITLE_TEMPLATES) || TITLE_TEMPLATES[0];
   return {
-    title: randomItem(TITLE_OPTIONS) || TITLE_OPTIONS[0],
+    title: titleTemplate.replace("{POST}", safePost),
     mission: randomItem(MISSION_HEADING_OPTIONS) || MISSION_HEADING_OPTIONS[0],
     agendas: randomItem(AGENDAS_HEADING_OPTIONS) || AGENDAS_HEADING_OPTIONS[0],
     credentials: randomItem(CREDENTIALS_HEADING_OPTIONS) || CREDENTIALS_HEADING_OPTIONS[0]
@@ -570,12 +573,13 @@ function buildFallbackPool() {
 
 function generateManifesto() {
   const candidateName = candidateNameInput.value.trim();
+  const secretaryPost = secretaryPostInput.value.trim() || DEFAULT_SECRETARY_POST;
   const discipline = disciplineInput.value.trim() || DEFAULT_DISCIPLINE;
   const experiences = parseCredentials(priorExperienceInput.value.trim());
   const agendas = selectAgendas(agendaPool, AGENDA_TARGET_COUNT);
   const selectedTagline = randomItem(taglinePool) || DEFAULT_TAGLINES[0];
   const selectedTheme = buildRandomTheme();
-  const selectedHeadings = buildRandomHeadings();
+  const selectedHeadings = buildRandomHeadings(secretaryPost);
   const manifesto = buildManifestoText(candidateName, discipline, experiences, agendas, selectedTagline, selectedHeadings);
   manifestoOutput.innerHTML = buildManifestoHtml(candidateName, discipline, experiences, agendas, selectedTagline, selectedTheme, selectedHeadings);
   setSlidersFromTheme(selectedTheme);
